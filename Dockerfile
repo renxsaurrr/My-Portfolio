@@ -28,18 +28,22 @@ RUN composer install --no-dev --optimize-autoloader
 # Install Node dependencies and build assets
 RUN npm install && npm run build
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage \
-    && chmod -R 755 /var/www/bootstrap/cache
-
-# Create SQLite database
+# Create SQLite database file
 RUN mkdir -p database && touch database/database.sqlite
 
-# Cache Laravel config
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
+# Set storage permissions
+RUN mkdir -p storage/framework/sessions \
+    && mkdir -p storage/framework/views \
+    && mkdir -p storage/framework/cache \
+    && mkdir -p storage/logs \
+    && mkdir -p bootstrap/cache \
+    && chmod -R 775 storage \
+    && chmod -R 775 bootstrap/cache
+
+# Clear and cache config AFTER everything is set up
+RUN php artisan config:clear \
+    && php artisan view:clear \
+    && php artisan route:clear
 
 EXPOSE 10000
 
