@@ -17,9 +17,6 @@ WORKDIR /var/www/html
 # Copy project
 COPY . .
 
-# Point Apache to Laravel's public folder
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
-
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
@@ -31,9 +28,19 @@ RUN mkdir -p storage/framework/sessions storage/framework/views storage/framewor
     && touch database/database.sqlite \
     && chown www-data:www-data database/database.sqlite
 
-# Apache config
-RUN echo '<Directory /var/www/html/public>\n    Options Indexes FollowSymLinks\n    AllowOverride All\n    Require all granted\n</Directory>' \
-    >> /etc/apache2/sites-available/000-default.conf
+# Configure Apache to serve from public folder
+RUN { \
+    echo '<VirtualHost *:80>'; \
+    echo '    DocumentRoot /var/www/html/public'; \
+    echo '    <Directory /var/www/html/public>'; \
+    echo '        AllowOverride All'; \
+    echo '        Require all granted'; \
+    echo '        Options Indexes FollowSymLinks'; \
+    echo '    </Directory>'; \
+    echo '    ErrorLog ${APACHE_LOG_DIR}/error.log'; \
+    echo '    CustomLog ${APACHE_LOG_DIR}/access.log combined'; \
+    echo '</VirtualHost>'; \
+} > /etc/apache2/sites-available/000-default.conf
 
 EXPOSE 80
 
