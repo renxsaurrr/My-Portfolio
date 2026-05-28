@@ -69,7 +69,7 @@
 <section id="about" class="bg-white pt-16 pb-24 scroll-mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center gap-3 mb-12">
+        <div class="flex items-center gap-3 mb-12 reveal">
             <div class="w-8 h-0.5 bg-cyan-400"></div>
             <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase">About Me</span>
         </div>
@@ -77,7 +77,7 @@
         <div class="grid md:grid-cols-2 gap-16 items-center">
 
             <!-- Left: Text -->
-            <div>
+            <div class="reveal-left">
                 <h2 class="text-4xl font-black text-slate-900 uppercase leading-tight mb-6">
                     Who I <span class="text-cyan-400">Am</span>
                 </h2>
@@ -101,7 +101,7 @@
             </div>
 
             <!-- Right: Info Cards -->
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 reveal-right stagger">
 
                 <div class="bg-slate-50 rounded-2xl p-6 flex flex-col gap-2">
                     <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center mb-2">
@@ -158,19 +158,19 @@
 <section id="skills" class="bg-slate-950 py-24 scroll-mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center gap-3 mb-12">
+        <div class="flex items-center gap-3 mb-12 reveal">
             <div class="w-8 h-0.5 bg-cyan-400"></div>
             <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase">What I Work With</span>
         </div>
 
-        <h2 class="text-4xl font-black text-white uppercase leading-tight mb-16">
+        <h2 class="text-4xl font-black text-white uppercase leading-tight mb-16 reveal">
             My <span class="text-cyan-400">Skills</span>
         </h2>
 
         <!-- Languages -->
-        <div class="mb-14">
+        <div class="mb-14 reveal">
             <p class="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">Languages</p>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-wrap gap-4 stagger">
 
                 <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 hover:border-cyan-400/40 px-5 py-3 rounded-xl transition duration-200 group">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-7 h-7" alt="PHP"/>
@@ -206,9 +206,9 @@
         </div>
 
         <!-- Frameworks & Libraries -->
-        <div class="mb-14">
+        <div class="mb-14 reveal">
             <p class="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">Frameworks & Libraries</p>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-wrap gap-4 stagger">
 
                 <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 hover:border-cyan-400/40 px-5 py-3 rounded-xl transition duration-200 group">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-7 h-7" alt="Laravel"/>
@@ -234,9 +234,9 @@
         </div>
 
         <!-- Tools & Platforms -->
-        <div class="mb-14">
+        <div class="mb-14 reveal">
             <p class="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">Tools & Platforms</p>
-            <div class="flex flex-wrap gap-4">
+            <div class="flex flex-wrap gap-4 stagger">
 
                 <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 hover:border-cyan-400/40 px-5 py-3 rounded-xl transition duration-200 group">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-7 h-7" alt="MySQL"/>
@@ -267,9 +267,9 @@
         </div>
 
         <!-- Concepts & Interests -->
-        <div>
+        <div class="reveal">
             <p class="text-xs text-slate-500 font-mono uppercase tracking-widest mb-6">Concepts & Interests</p>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 stagger">
                 <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs font-medium px-4 py-2 rounded-full">Full-Stack Web Development</span>
                 <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs font-medium px-4 py-2 rounded-full">UI/UX Design</span>
                 <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs font-medium px-4 py-2 rounded-full">Human-Computer Interaction</span>
@@ -290,19 +290,19 @@
 <section id="certifications" class="bg-white py-24 scroll-mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center gap-3 mb-12">
+        <div class="flex items-center gap-3 mb-12 reveal">
             <div class="w-8 h-0.5 bg-cyan-400"></div>
             <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase">Credentials</span>
         </div>
 
-        <h2 class="text-4xl font-black text-slate-900 uppercase leading-tight mb-16">
+        <h2 class="text-4xl font-black text-slate-900 uppercase leading-tight mb-16 reveal">
             My <span class="text-cyan-400">Certifications</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger">
 
             <!-- Cert 1: Java -->
-            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300">
+            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300 reveal-scale">
                 <div class="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
                     <img
                         src="{{ asset('images/cert-java.png') }}"
@@ -328,7 +328,7 @@
             </div>
 
             <!-- Cert 2: HTML & CSS -->
-            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300">
+            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300 reveal-scale">
                 <div class="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
                     <img
                         src="{{ asset('images/cert-html&css.png') }}"
@@ -354,7 +354,7 @@
             </div>
 
             <!-- Cert 3: Databases -->
-            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300">
+            <div class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-cyan-400/50 hover:shadow-lg transition duration-300 reveal-scale">
                 <div class="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
                     <img
                         src="{{ asset('images/cert-databases.png') }}"
@@ -387,19 +387,19 @@
 <section id="projects" class="bg-slate-950 py-24 scroll-mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center gap-3 mb-12">
+        <div class="flex items-center gap-3 mb-12 reveal">
             <div class="w-8 h-0.5 bg-cyan-400"></div>
             <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase">What I've Built</span>
         </div>
 
-        <h2 class="text-4xl font-black text-white uppercase leading-tight mb-16">
+        <h2 class="text-4xl font-black text-white uppercase leading-tight mb-16 reveal">
             My <span class="text-cyan-400">Projects</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 stagger">
 
             <!-- Project 1: CounselConnect -->
-            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col">
+            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col reveal-scale">
                 <div class="relative w-full aspect-video bg-slate-800 overflow-hidden">
                     <img
                         src="{{ asset('images/counselconnect.png') }}"
@@ -436,7 +436,7 @@
             </div>
 
             <!-- Project 2: Swapy -->
-            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col">
+            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col reveal-scale">
                 <div class="relative w-full aspect-video bg-slate-800 overflow-hidden">
                     <img
                         src="{{ asset('images/swapy.jpg') }}"
@@ -474,7 +474,7 @@
             </div>
 
             <!-- Project 3: Payroll System -->
-            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col">
+            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col reveal-scale">
                 <div class="relative w-full aspect-video bg-slate-800 overflow-hidden">
                     <img
                         src="{{ asset('images/payroll.png') }}"
@@ -511,7 +511,7 @@
             </div>
 
             <!-- Project 4: Anytime Fitness -->
-            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col">
+            <div class="group bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition duration-300 flex flex-col reveal-scale">
                 <div class="relative w-full aspect-video bg-slate-800 overflow-hidden">
                     <img
                         src="{{ asset('images/anytimefitness.jpg') }}"
@@ -566,7 +566,7 @@
 <section id="contact" class="bg-white py-24 scroll-mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="flex items-center gap-3 mb-12">
+        <div class="flex items-center gap-3 mb-12 reveal">
             <div class="w-8 h-0.5 bg-cyan-400"></div>
             <span class="text-cyan-500 font-mono text-xs tracking-widest uppercase">Get In Touch</span>
         </div>
@@ -574,7 +574,7 @@
         <div class="grid md:grid-cols-2 gap-16 items-start">
 
             <!-- Left: Text -->
-            <div>
+            <div class="reveal-left">
                 <h2 class="text-4xl font-black text-slate-900 uppercase leading-tight mb-6">
                     Let's <span class="text-cyan-400">Connect</span>
                 </h2>
@@ -627,7 +627,7 @@
             </div>
 
             <!-- Right: Contact Form -->
-            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 reveal-right">
                 <form action="{{ route('contact.send') }}" method="POST" class="space-y-5">
                     @csrf
                     @if(session('success'))

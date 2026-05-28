@@ -7,26 +7,92 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <style>
+        /* ── Page-load animations ── */
         @keyframes fadeDown {
             from { opacity: 0; transform: translateY(-16px); }
             to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(24px); }
+            from { opacity: 0; transform: translateY(32px); }
             to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
+            from { opacity: 0; transform: scale(0.96); }
+            to   { opacity: 1; transform: scale(1); }
         }
-        .anim-nav     { animation: fadeDown 0.5s ease both; }
-        .anim-content { animation: fadeUp  0.6s ease both; animation-delay: 0.15s; }
-        .anim-fade    { animation: fadeIn  0.8s ease both; animation-delay: 0.3s; }
+
+        .anim-nav     { animation: fadeDown 0.5s cubic-bezier(.22,1,.36,1) both; }
+        .anim-content { animation: fadeUp  0.7s cubic-bezier(.22,1,.36,1) both; animation-delay: 0.15s; }
+        .anim-fade    { animation: fadeIn  0.9s cubic-bezier(.22,1,.36,1) both; animation-delay: 0.3s; }
+
+        /* ── Scroll-reveal system ── */
+        /* Default state: hidden & shifted down */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s cubic-bezier(.22,1,.36,1),
+                        transform 0.6s cubic-bezier(.22,1,.36,1);
+        }
+        /* Variant: slide from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-32px);
+            transition: opacity 0.65s cubic-bezier(.22,1,.36,1),
+                        transform 0.65s cubic-bezier(.22,1,.36,1);
+        }
+        /* Variant: slide from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(32px);
+            transition: opacity 0.65s cubic-bezier(.22,1,.36,1),
+                        transform 0.65s cubic-bezier(.22,1,.36,1);
+        }
+        /* Variant: subtle scale-up (for cards/pills) */
+        .reveal-scale {
+            opacity: 0;
+            transform: translateY(20px) scale(0.97);
+            transition: opacity 0.55s cubic-bezier(.22,1,.36,1),
+                        transform 0.55s cubic-bezier(.22,1,.36,1);
+        }
+
+        /* Visible state — added by IntersectionObserver */
+        .reveal.in-view,
+        .reveal-left.in-view,
+        .reveal-right.in-view,
+        .reveal-scale.in-view {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Staggered delays for children */
+        .stagger > *:nth-child(1)  { transition-delay: 0s; }
+        .stagger > *:nth-child(2)  { transition-delay: 0.07s; }
+        .stagger > *:nth-child(3)  { transition-delay: 0.14s; }
+        .stagger > *:nth-child(4)  { transition-delay: 0.21s; }
+        .stagger > *:nth-child(5)  { transition-delay: 0.28s; }
+        .stagger > *:nth-child(6)  { transition-delay: 0.35s; }
+        .stagger > *:nth-child(7)  { transition-delay: 0.42s; }
+        .stagger > *:nth-child(8)  { transition-delay: 0.49s; }
+        .stagger > *:nth-child(9)  { transition-delay: 0.56s; }
+        .stagger > *:nth-child(10) { transition-delay: 0.63s; }
 
         /* Active nav link — cyan underline only */
         .nav-link.active {
             color: #06b6d4 !important;
             box-shadow: inset 0 -2px 0 0 #22d3ee;
+        }
+
+        /* Respect reduced-motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .anim-nav, .anim-content, .anim-fade {
+                animation: none !important;
+                opacity: 1 !important;
+            }
         }
     </style>
 </head>
@@ -187,6 +253,25 @@
         window.addEventListener('scroll', updateActiveSection, { passive: true });
         // Run once on load
         updateActiveSection();
+
+        // ── Scroll-reveal IntersectionObserver ──
+        // Adds 'in-view' when entering, removes when out — so it re-animates on scroll up too
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
     </script>
 
 </body>
