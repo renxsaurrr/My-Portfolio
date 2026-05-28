@@ -18,6 +18,6 @@ class ContactController extends Controller
 
         Mail::to('rendellalfanta@gmail.com')->send(new ContactMail($validated));
 
-        return back()->with('success', 'Message sent! I\'ll get back to you soon.');
+        return redirect('/#contact')->with('success', 'Message sent! I\'ll get back to you soon.');
     }
 }
